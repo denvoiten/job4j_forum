@@ -3,29 +3,21 @@ package ru.job4j.forum.model;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Objects;
 
-@Setter
 @Getter
+@Setter
 @RequiredArgsConstructor
-@ToString
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "authorities")
+public class Authority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String password;
-
-    private String username;
-
-    @ManyToOne
-    @JoinColumn(name = "authority_id")
-    private Authority authority;
+    private String authority;
 
     @Override
     public boolean equals(Object o) {
@@ -35,12 +27,12 @@ public class User {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        User user = (User) o;
-        return id == user.id && Objects.equals(username, user.username);
+        Authority authority = (Authority) o;
+        return id == authority.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username);
+        return Objects.hash(id);
     }
 }
