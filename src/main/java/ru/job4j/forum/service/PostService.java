@@ -3,29 +3,25 @@ package ru.job4j.forum.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.job4j.forum.model.Post;
-import ru.job4j.forum.persistence.PostMemStore;
+import ru.job4j.forum.persistence.PostRepository;
 
-import java.util.Collection;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
 public class PostService {
-    private final PostMemStore posts;
+    private final PostRepository posts;
 
-    public Collection<Post> getAll() {
-        return posts.getAll();
+    public Iterable<Post> findAll() {
+        return posts.findAll();
     }
 
-    public Post findById(int id) {
+    public Optional<Post> findById(int id) {
         return posts.findById(id);
     }
 
-    public void add(Post post) {
-        posts.add(post);
-    }
-
-    public void update(Post post) {
-        posts.update(post);
+    public void save(Post post) {
+        posts.save(post);
     }
 
     public void delete(int id) {

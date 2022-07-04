@@ -13,7 +13,7 @@ public class IndexControl {
 
     @GetMapping({"/", "/index"})
     public String index(Model model) {
-        model.addAttribute("posts", postService.getAll());
+        model.addAttribute("posts", postService.findAll());
         return "index";
     }
 }
