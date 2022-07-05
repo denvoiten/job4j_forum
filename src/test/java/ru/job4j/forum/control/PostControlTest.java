@@ -46,7 +46,7 @@ class PostControlTest {
     @WithMockUser
     void shouldReturnDefaultMessagePostInfo() throws Exception {
         when(postService.findById(1)).thenReturn(Optional.of(Post.of("post", "")));
-        this.mockMvc.perform(get("/postInfo/{id}", "1"))
+        this.mockMvc.perform(get("/post/{id}", "1"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(view().name("post"));
