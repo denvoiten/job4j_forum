@@ -15,7 +15,7 @@ import ru.job4j.forum.service.PostService;
 public class PostControl {
     private final PostService postService;
 
-    @GetMapping("/postInfo/{id}")
+    @GetMapping("/post/{id}")
     public String detailsPost(Model model, @PathVariable("id") int id) {
         postService.findById(id).ifPresent(post -> model.addAttribute("post", post));
         return "post";
@@ -29,7 +29,7 @@ public class PostControl {
     @PostMapping("/createPost")
     public String addPost(@ModelAttribute Post post) {
         postService.save(post);
-        return "redirect:/index";
+        return "redirect:/post/" + post.getId();
     }
 
     @GetMapping("deletePost/{postId}")

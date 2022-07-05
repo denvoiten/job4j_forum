@@ -46,7 +46,7 @@
             <tbody>
             <tr th:each="post: ${posts}">
                 <td>
-                    <a class="text-dark" th:href="@{|/postInfo/${post.id}|}" th:text="${post.name}"/>
+                    <a class="text-dark" th:href="@{|/post/${post.id}|}" th:text="${post.name}"/>
                 </td>
                 <td>
                     <a class="text-dark"  th:text="${#calendars.format(post.created, 'dd-MM-yyyy HH:mm')}"/>
