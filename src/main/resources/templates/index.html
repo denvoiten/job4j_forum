@@ -34,12 +34,20 @@
                 <a class="nav-item nav-link" th:href="@{/addPost}">Новая тема</a>
             </div>
         </div>
+        <div class="navbar-nav justify-content-end">
+            <a class="nav-item nav-link" th:href="@{/logout}">
+                <span th:text="${user.username}"></span>
+                <span> | Выйти</span>
+            </a>
+        </div>
     </nav>
     <div class="row">
         <table class="table">
             <thead>
             <tr>
                 <th scope="col">Тема</th>
+                <th scope="col">Описание</th>
+                <th scope="col">Автор</th>
                 <th scope="col">Дата создания</th>
             </tr>
             </thead>
@@ -49,7 +57,14 @@
                     <a class="text-dark" th:href="@{|/post/${post.id}|}" th:text="${post.name}"/>
                 </td>
                 <td>
-                    <a class="text-dark"  th:text="${#calendars.format(post.created, 'dd-MM-yyyy HH:mm')}"/>
+                    <a class="text-dark" th:href="@{|/post/${post.id}|}" th:utext="${#strings.abbreviate(post.description, 50)}"/>
+                </td>
+                <td style="width: 15%">
+                    <a class="text-dark" th:href="@{|/post/${post.id}|}"/>
+                    <span th:text="${post.author.username}"></span>
+                    </span>
+                </td>
+                <td style="width: 15%" th:text="${#calendars.format(post.created, 'dd-MM-yyyy HH:mm')}">
                 </td>
             </tr>
             </tbody>

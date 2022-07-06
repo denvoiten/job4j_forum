@@ -11,6 +11,7 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import ru.job4j.forum.Main;
 import ru.job4j.forum.model.Post;
+import ru.job4j.forum.model.User;
 import ru.job4j.forum.service.PostService;
 
 import java.util.Optional;
@@ -45,7 +46,7 @@ class PostControlTest {
     @Test
     @WithMockUser
     void shouldReturnDefaultMessagePostInfo() throws Exception {
-        when(postService.findById(1)).thenReturn(Optional.of(Post.of("post", "")));
+        when(postService.findById(1)).thenReturn(Optional.of(Post.of("post", "", new User())));
         this.mockMvc.perform(get("/post/{id}", "1"))
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -55,7 +56,7 @@ class PostControlTest {
     @Test
     @WithMockUser
     void shouldReturnDefaultMessageEdit() throws Exception {
-        when(postService.findById(1)).thenReturn(Optional.of(Post.of("post", "")));
+        when(postService.findById(1)).thenReturn(Optional.of(Post.of("post", "", new User())));
         this.mockMvc.perform(get("/edit/{id}", "1"))
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -65,7 +66,7 @@ class PostControlTest {
     @Test
     @WithMockUser
     void shouldReturnDefaultMessageDelete() throws Exception {
-        when(postService.findById(1)).thenReturn(Optional.of(Post.of("post", "")));
+        when(postService.findById(1)).thenReturn(Optional.of(Post.of("post", "", new User())));
         this.mockMvc.perform(get("/deletePost/{postId}", "1"))
                 .andDo(print())
                 .andExpect(status().isFound())

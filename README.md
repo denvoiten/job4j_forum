@@ -3,13 +3,36 @@
 ## О проекте.
 
 #### Описание
-
+Web-приложение форум.
 
 #### Технологии
-> JDK11, Maven, PostgreSQL, Hibernate, HQL
+> JDK11, Maven, Spring Boot, Spring Data, Spring MVC, Spring Security, Liquibase, Mockito
 
 
 ## Использование
+
+Главное окно приложения состоит из списка тем форума.
+![](images/index.png)
+
+Можно добавить новую тему
+
+![](images/newPost.png)
+
+Перейдя в тему, можно просмотреть список сообщений в теме, добавить новое сообщение.
+![](images/post.png)
+
+Пользователь с ролью "Admin" может удалять сообщения, редактировать и удалять темы.
+Обычные пользователи могут редактировать и удалять только свои темы.
+![](images/notAuthor.png)
+
+Все зарегистрированные пользователи хранятся в БД. Форма авторизации:
+
+![](images/login.png)
+
+Есть возможность регистрации новых пользователей. Форма регистрации:
+
+![](images/reg.png)
+
 
 ### Контакты:
 [<img align="left" alt="telegram" width="18px" src="https://cdn.jsdelivr.net/npm/simple-icons@3.3.0/icons/telegram.svg" />][telegram]

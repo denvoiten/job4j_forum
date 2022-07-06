@@ -40,20 +40,23 @@
             </div>
             <div class="card-body shadow">
                 <form th:action="@{/login}" method="POST">
-                    <div class="form-group">
-                        <label for="username">Login</label>
-                        <input type="text" placeholder="Enter your login" class="form-control bg-light col"
+                    <label for="username">Логин </label>
+                    <div class="form-group row justify-content-center">
+                        <input type="text" class="form-control bg-light col-md-6" placeholder="Введите логин"
                                name="username" id="username" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Пароль</label>
-                        <input type="password" placeholder="*************" class="form-control bg-light col"
-                               name="password" id="password" required>
-                        <button type="submit" class="btn btn-primary mt-3">Войти</button>
+                        <div class="form-group row justify-content-center">
+                            <input type="password" class="form-control bg-light col-md-6"
+                                   placeholder="*************"
+                                   name="password" id="password" required>
+                        </div>
                         <div class="mt-3">Нет аккаунта?
                             <a th:href="@{/reg}" class="link" role="button"
                                aria-pressed="true">Создать</a>
                         </div>
+                        <button type="submit" class="btn btn-primary mt-3">Войти</button>
                     </div>
                 </form>
             </div>
